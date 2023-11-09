@@ -4,7 +4,7 @@ import Modal from '@/components/ui/modal';
 import { useModalStore } from '@/hooks/useStoreModal';
 import { UserButton } from '@clerk/nextjs';
 
-export default function SetupPage() {
+const SetupPage = () => {
   const isOpen = useModalStore((state) => state.isOpen);
   const onOpen = useModalStore((state) => state.onOpen);
 
@@ -17,3 +17,5 @@ export default function SetupPage() {
     </div>
   );
 }
+
+export default SetupPage
