@@ -23,7 +23,6 @@ const DashboardLayout = async ({
       userId,
     },
   });
-  console.log('🚀 ~ file: layout.tsx:25 ~ store:', store);
 
   if (!store) {
     redirect(`/`);

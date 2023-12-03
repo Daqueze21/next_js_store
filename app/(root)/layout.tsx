@@ -9,7 +9,6 @@ const SetupLayout = async function ({
   children: React.ReactNode;
 }) {
   const { userId } = auth();
-  console.log("🚀 ~ file: layout.tsx:12 ~ userId:", userId);
 
   if (!userId) {
     redirect('/sign-in');

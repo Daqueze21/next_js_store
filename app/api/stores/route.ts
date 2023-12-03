@@ -16,7 +16,7 @@ export const POST = async (req: Request) => {
     const store = await prismaDb.store.create({data:{name, userId}});
     return NextResponse.json(store);
   } catch (error) {
-    console.log('🚀 ~ file: route.ts:5 ~ POST ~ error:', error);
-    return new NextResponse('Interal error', { status: 500 });
+    console.log('🚀 ~ file: route.ts:5 ~ [STORE_POST] ~ error:', error);
+    return new NextResponse('Internal error', { status: 500 });
   }
 }

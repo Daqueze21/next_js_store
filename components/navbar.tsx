@@ -21,8 +21,8 @@ const Navbar = async () => {
   return (
     <div className='border-b'>
       <div className='flex items-center h-16 px-4'>
-        <StoreSwitcher items={[]} />
-        <MainNav className='mx-6'/>
+        <StoreSwitcher items={stores} />
+        <MainNav className='mx-6' />
         <div className='flex ml-auto items-center space-x-4'>
           <UserButton afterSignOutUrl='/' />
         </div>
