@@ -18,6 +18,7 @@ export const PATCH = async (
     if (!userId) {
       return new NextResponse('Unauthorized user', { status: 401 });
     }
+    
     if (!name) {
       return new NextResponse('Name is required', { status: 400 });
     }
@@ -37,7 +38,7 @@ export const PATCH = async (
     });
     return NextResponse.json(store);
   } catch (error) {
-    console.log('🚀 ~ file: route.ts:8 ~ [STORE PATCH] ~ error:', error);
+    console.log('🚀 ~ file: route.ts:41 ~ error:[STORE PATCH]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 };
@@ -70,7 +71,7 @@ export const DELETE = async (
 
     return NextResponse.json(store);
   } catch (error) {
-    console.log('🚀 ~ file: route.ts:8 ~ [STORE_DELETE] ~ error:', error);
+    console.log('🚀 ~ file: route.ts:74 ~ error:[STORE_DELETE]', error);
     return new NextResponse('Internal error', { status: 500 });
   }
 };

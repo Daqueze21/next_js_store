@@ -24,15 +24,15 @@ import { AlertModal } from '@/components/modals/alertModal';
 import { ApiAlert } from '@/components/ui/apiAlert';
 import { useOrigin } from '@/hooks/useOrigin';
 
-interface SettingsProps {
-  initialDate: Store;
-}
-
 const formSchema = z.object({
   name: z.string().min(1),
 });
 
 type SettingsFormValue = z.infer<typeof formSchema>;
+
+interface SettingsProps {
+  initialDate: Store;
+}
 
 export const SettingsForm = ({ initialDate }: SettingsProps) => {
   const params = useParams();
