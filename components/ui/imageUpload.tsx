@@ -19,7 +19,6 @@ export const ImageUpload = ({
   onRemove,
 }: ImageUploadProps) => {
   const [mounted, setMounted] = useState<boolean>(false);
-  console.log('🚀 ~ file: imageUpload.tsx:22 ~ mounted:', mounted);
 
   useEffect(() => {
     setMounted(true);

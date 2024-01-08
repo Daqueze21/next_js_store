@@ -29,8 +29,10 @@ export const ApiAlert = ({
   variant = 'public',
 }: ApiAlertProps) => {
   const onCopy = () => {
+    navigator.clipboard.writeText(description);
     toast.success('API Route copied  to the clipboard' + description);
   };
+
   return (
     <Alert>
       <Server className='h-4 w-4' />

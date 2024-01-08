@@ -81,14 +81,14 @@ export const BillboardForm = ({ initialData }: BillboardProps) => {
       setIsLoading(true);
       await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
       router.refresh();
-      router.push('/');
+      router.push(`/${params.storeId}/billboards`);
       toast.success('Billboard was successfully deleted.');
     } catch (error) {
       console.log("🚀 ~ file: billboardForm.tsx:87 ~ deleteHandler ~ error:", error);
       toast.error('Make sure you removed all categories using this billboard first.');
     } finally {
       setIsLoading(false);
-      setIsModalOpen(true);
+      setIsModalOpen(false);
     }
   };
 

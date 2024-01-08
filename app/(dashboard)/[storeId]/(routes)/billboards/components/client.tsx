@@ -6,8 +6,16 @@ import { Button } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { Plus } from 'lucide-react';
+import { Billboard } from '@prisma/client';
+import { BillboardColumn, columns } from './column';
+import { DataTable } from '@/components/ui/dataTable';
+import { ApiList } from '@/components/ui/apiList';
 
-const BillboardClient = () => {
+interface BillboardClientProps {
+  data: BillboardColumn[];
+}
+
+const BillboardClient = ({ data }: BillboardClientProps) => {
   const params = useParams();
   const router = useRouter();
 
@@ -15,7 +23,7 @@ const BillboardClient = () => {
     <>
       <div className='flex items-center justify-between'>
         <Heading
-          title={'Billboards (0)'}
+          title={`Billboards (${data.length})`}
           description={'Manage billboards for your store'}
         />
         <Button
@@ -26,6 +34,10 @@ const BillboardClient = () => {
         </Button>
       </div>
       <Separator />
+      <DataTable searchKey={'label'} columns={columns} data={data} />
+      <Heading title={'API'} description={'API calls for billboards'} />
+      <Separator />
+      <ApiList entityName='billboards' entityIdName='billboardId' />
     </>
   );
 };
