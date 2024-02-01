@@ -6,15 +6,16 @@ import { Button } from '@/components/ui/button';
 import { Heading } from '@/components/ui/heading';
 import { Separator } from '@/components/ui/separator';
 import { Plus } from 'lucide-react';
-import { BillboardColumn, columns } from './column';
+// import { Category } from '@prisma/client';
+import { CategoryColumn, columns } from './column';
 import { DataTable } from '@/components/ui/dataTable';
 import { ApiList } from '@/components/ui/apiList';
 
-interface BillboardClientProps {
-  data: BillboardColumn[];
+interface CategoryClientProps {
+  data: CategoryColumn[];
 }
 
-const BillboardClient = ({ data }: BillboardClientProps) => {
+const CategoryClient = ({ data }: CategoryClientProps) => {
   const params = useParams();
   const router = useRouter();
 
@@ -22,23 +23,23 @@ const BillboardClient = ({ data }: BillboardClientProps) => {
     <>
       <div className='flex items-center justify-between'>
         <Heading
-          title={`Billboards (${data.length})`}
-          description={'Manage billboards for your store'}
+          title={`Categories (${data.length})`}
+          description={'Manage categories for your store'}
         />
         <Button
-          onClick={() => router.push(`/${params.storeId}/billboards/new`)}
+          onClick={() => router.push(`/${params.storeId}/categories/new`)}
           className='bg-green-700 hover:bg-green-800'>
           <Plus className='mr-2 h-4 w-4' />
           Add New
         </Button>
       </div>
       <Separator />
-      <DataTable searchKey={'label'} columns={columns} data={data} />
-      <Heading title={'API'} description={'API calls for billboards'} />
+      <DataTable searchKey={'name'} columns={columns} data={data} />
+      <Heading title={'API'} description={'API calls for categories'} />
       <Separator />
-      <ApiList entityName='billboards' entityIdName='billboardId' />
+      <ApiList entityName='categories' entityIdName='categoryId' />
     </>
   );
 };
 
-export default BillboardClient;
+export default CategoryClient;
